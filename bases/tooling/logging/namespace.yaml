@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: external-dns
+  name: logging
   labels:
     istio-injection: disabled
     owner: platform

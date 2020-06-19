@@ -1,0 +1,38 @@
+---
+  apiVersion: helm.fluxcd.io/v1
+  kind: HelmRelease
+  metadata:
+    name: cerebro
+    namespace: logging
+  spec:
+    chart:
+      repository: https://kubernetes-charts.storage.googleapis.com
+      name: cerebro
+      version: "1.8.2"
+    values:
+      replicaCount: 2
+
+      image:
+        repository: lmenezes/cerebro
+        tag: 0.9.0
+        pullPolicy: IfNotPresent
+
+      service:
+        type: ClusterIP
+        port: 80
+        labels:
+          k8s-app: elasticsearch-logging-cerebro
+          kubernetes.io/name: "Cerebro"
+          kubernetes.io/cluster-service: "true"
+          addonmanager.kubernetes.io/mode: Reconcile
+      
+      ingress:
+        enabled: false
+
+      config:
+        basePath: '/'
+        restHistorySize: 50
+        hosts:
+          - host: http://elasticsearch-client:9200
+            name: "EFK Cluster"
+

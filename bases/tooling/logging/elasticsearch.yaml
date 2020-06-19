@@ -1,0 +1,32 @@
+---
+  apiVersion: helm.fluxcd.io/v1
+  kind: HelmRelease
+  metadata:
+    name: elasticsearch
+    namespace: logging
+  spec:
+    chart:
+      repository: https://kubernetes-charts.storage.googleapis.com
+      name: elasticsearch
+      version: "1.32.5"
+    values:
+      appVersion: "6.8.6"
+
+      serviceAccounts:
+        client:
+          create: true
+          name: elasticsearch-client
+        master:
+          create: true
+          name: elasticsearch-master
+        data:
+          create: true
+          name: elasticsearch-data
+
+      image:
+        repository: docker.elastic.co/elasticsearch/elasticsearch-oss
+        tag: "6.8.6"
+        pullPolicy: "IfNotPresent"
+
+      cluster:
+        name: "elasticsearch-logging"

@@ -1,0 +1,31 @@
+---
+  apiVersion: helm.fluxcd.io/v1
+  kind: HelmRelease
+  metadata:
+    name: fluentd
+    namespace: logging
+  spec:
+    chart:
+      repository: https://kiwigrid https://kiwigrid.github.io
+      name: fluentd-elasticsearch
+      version: "9.3.2"
+    values:     
+      image:
+        repository: quay.io/fluentd_elasticsearch/fluentd
+        tag: v3.0.2
+        pullPolicy: IfNotPresent
+      elasticsearch:
+        hosts: ["elasticsearch-client:9200"]
+      service:
+        ports:
+          - name: "fluentd-tcp"
+            type: ClusterIP
+            port: 24224
+      configMaps:
+        useDefaults:
+          systemConf: true
+          containersInputConf: true
+          systemInputConf: true
+          forwardInputConf: true
+          monitoringConf: true
+          outputConf: true

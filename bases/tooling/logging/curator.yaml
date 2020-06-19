@@ -1,0 +1,71 @@
+---
+  apiVersion: helm.fluxcd.io/v1
+  kind: HelmRelease
+  metadata:
+    name: curator
+    namespace: logging
+  spec:
+    chart:
+      repository: https://kubernetes-charts.storage.googleapis.com
+      name: curator
+      version: "2.1.5"
+    values:
+      cronjob:
+        # At 01:00 every day
+        schedule: "0 1 * * *"
+        concurrencyPolicy: Forbid
+        failedJobsHistoryLimit: 3
+        successfulJobsHistoryLimit: 1
+      
+      image:
+        repository: untergeek/curator
+        tag: "5.7.6"
+        pullPolicy: IfNotPresent
+
+      configMaps:
+        # Delete indices older than 7 days
+        action_file_yml: |-
+          ---
+          actions:
+            1:
+              action: delete_indices
+              description: "Clean up ES by deleting old indices"
+              options:
+                timeout_override:
+                continue_if_exception: False
+                disable_action: False
+                ignore_empty_list: True
+              filters:
+              - filtertype: age
+                source: name
+                direction: older
+                timestring: '%Y.%m.%d'
+                unit: days
+                unit_count: 7
+                field:
+                stats_result:
+                epoch:
+                exclude: False
+        # Having config_yaml WILL override the other config
+        config.yml: |-
+          ---
+          # Remember, leave a key empty if there is no value.  None will be a string,
+          # not a Python "NoneType"
+          client:
+            hosts:
+              - elasticsearch-client
+            port: 9200
+            url_prefix:
+            use_ssl: False
+            certificate:
+            client_cert:
+            client_key:
+            ssl_no_validate: False
+            http_auth:
+            timeout: 30
+            master_only: False
+          logging:
+            loglevel: INFO
+            logfile:
+            logformat: default
+            blacklist: ['elasticsearch', 'urllib3']

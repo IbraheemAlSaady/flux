@@ -5,6 +5,8 @@ resources:
   - ../../bases/tooling/external-dns/core
   - external-dns-svc-lb-public
   - external-dns-svc-lb-internal
+  - ../../bases/tooling/logging
+
   # - ../../bases/rbac
 
 # configMapGenerator:
