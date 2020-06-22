@@ -2,7 +2,7 @@
   apiVersion: helm.fluxcd.io/v1
   kind: HelmRelease
   metadata:
-    name: elasticsearch
+    name: elasticsearch-master
     namespace: logging
   spec:
     chart:
@@ -11,6 +11,21 @@
       version: "7.7.1"
     values:
       clusterName: "elasticsearch"
+      nodeGroup: "master"
+
+      roles:
+        master: "true"
+        ingest: "false"
+        data: "false"
+ 
+      replicas: 3
+
+      volumeClaimTemplate:
+        accessModes: [ "ReadWriteOnce" ]
+        storageClassName: "standard"
+        resources:
+          requests:
+            storage: 4Gi
 
       image: "docker.elastic.co/elasticsearch/elasticsearch"
       imageTag: "7.7.1"

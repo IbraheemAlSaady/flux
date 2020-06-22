@@ -7,7 +7,7 @@
   spec:
     chart:
       repository: https://kubernetes-charts.storage.googleapis.com
-      name: curator
+      name: elasticsearch-curator
       version: "2.1.5"
     values:
       cronjob:
