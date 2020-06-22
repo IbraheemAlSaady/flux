@@ -15,7 +15,7 @@
         tag: v3.0.2
         pullPolicy: IfNotPresent
       elasticsearch:
-        hosts: ["logging-elasticsearch-client:9200"]
+        hosts: ["elasticsearch-master:9200"]
       service:
         ports:
           - name: "fluentd-tcp"
