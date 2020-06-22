@@ -1,7 +1,7 @@
 ---
 resources:
   - namespace.yaml
-  - service-account.yaml
+  # - service-account.yaml
   - elasticsearch-master.yaml
   - elasticsearch-data.yaml
   - elasticsearch-client.yaml
