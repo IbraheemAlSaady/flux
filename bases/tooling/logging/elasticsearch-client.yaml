@@ -13,6 +13,8 @@
       clusterName: "elasticsearch"
       nodeGroup: "client"
 
+      masterService: "elasticsearch-master"
+
       roles:
         master: "false"
         ingest: "false"
