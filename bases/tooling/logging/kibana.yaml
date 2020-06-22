@@ -12,24 +12,24 @@ spec:
   values:
     elasticsearchHosts: "http://logging-elasticsearch-client:9200"
 
-    image: "docker.elastic.co/kibana/kibana"
-    imageTag: "7.7.1"
-    imagePullPolicy: "IfNotPresent"
+    # image: "docker.elastic.co/kibana/kibana"
+    # imageTag: "7.7.1"
+    # imagePullPolicy: "IfNotPresent"
           
-    kibanaConfig:
-      kibana.yml:
-        ## Default Kibana configuration from kibana-docker.
-        server.name: kibana
-        server.host: "0"
-        ## For kibana < 6.6, use elasticsearch.url instead
-        elasticsearch.hosts: http://logging-elasticsearch-client:9200
-    service:
-      type: ClusterIP
-      port: 5601
-      labels:
-        k8s-app: kibana-logging
-        kubernetes.io/cluster-service: "true"
-        addonmanager.kubernetes.io/mode: Reconcile
-        kubernetes.io/name: "Kibana"
-    ingress:
-      enabled: false
+    # kibanaConfig:
+    #   kibana.yml:
+    #     ## Default Kibana configuration from kibana-docker.
+    #     server.name: kibana
+    #     server.host: "0"
+    #     ## For kibana < 6.6, use elasticsearch.url instead
+    #     elasticsearch.hosts: http://logging-elasticsearch-client:9200
+    # service:
+    #   type: ClusterIP
+    #   port: 5601
+    #   labels:
+    #     k8s-app: kibana-logging
+    #     kubernetes.io/cluster-service: "true"
+    #     addonmanager.kubernetes.io/mode: Reconcile
+    #     kubernetes.io/name: "Kibana"
+    # ingress:
+    #   enabled: false
