@@ -7,5 +7,5 @@ resources:
   - elasticsearch-client.yaml
   - fluentd.yaml
   - kibana.yaml
-  # - cerebro.yaml
-  # - curator.yaml
+  - cerebro.yaml
+  - curator.yaml
