@@ -14,13 +14,13 @@
 
       serviceAccounts:
         client:
-          create: true
+          create: false
           name: elasticsearch-client
         master:
-          create: true
+          create: false
           name: elasticsearch-master
         data:
-          create: true
+          create: false
           name: elasticsearch-data
 
       image:
@@ -29,4 +29,4 @@
         pullPolicy: "IfNotPresent"
 
       cluster:
-        name: "elasticsearch-logging"
+        name: "elasticsearch"

@@ -1,9 +1,9 @@
 ---
-  resources:
-    - namespace.yaml
-    - elasticsearch.yaml
-    - fluentd.yaml
-    - kibana.yaml
-    - cerebro.yaml
-    - curator.yaml
-  
+resources:
+  - namespace.yaml
+  - service-account.yaml
+  - elasticsearch.yaml
+  - fluentd.yaml
+  - kibana.yaml
+  - cerebro.yaml
+  - curator.yaml

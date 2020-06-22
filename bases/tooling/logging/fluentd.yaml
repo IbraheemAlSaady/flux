@@ -6,7 +6,7 @@
     namespace: logging
   spec:
     chart:
-      repository: https://kiwigrid https://kiwigrid.github.io
+      repository: https://kiwigrid.github.io
       name: fluentd-elasticsearch
       version: "9.3.2"
     values:     
@@ -15,7 +15,7 @@
         tag: v3.0.2
         pullPolicy: IfNotPresent
       elasticsearch:
-        hosts: ["elasticsearch-client:9200"]
+        hosts: ["logging-elasticsearch-client:9200"]
       service:
         ports:
           - name: "fluentd-tcp"
