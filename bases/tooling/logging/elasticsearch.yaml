@@ -6,27 +6,12 @@
     namespace: logging
   spec:
     chart:
-      repository: https://kubernetes-charts.storage.googleapis.com
+      repository: https://helm.elastic.co
       name: elasticsearch
-      version: "1.32.5"
+      version: "7.7.1"
     values:
-      appVersion: "6.8.6"
+      clusterName: "elasticsearch"
 
-      serviceAccounts:
-        client:
-          create: false
-          name: elasticsearch-client
-        master:
-          create: false
-          name: elasticsearch-master
-        data:
-          create: false
-          name: elasticsearch-data
-
-      image:
-        repository: docker.elastic.co/elasticsearch/elasticsearch-oss
-        tag: "6.8.6"
-        pullPolicy: "IfNotPresent"
-
-      cluster:
-        name: "elasticsearch"
+      image: "docker.elastic.co/elasticsearch/elasticsearch"
+      imageTag: "7.7.1"
+      imagePullPolicy: "IfNotPresent"
