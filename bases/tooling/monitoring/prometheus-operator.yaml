@@ -29,16 +29,16 @@ spec:
           repository: quay.io/prometheus/alertmanager
           tag: v0.20.0
 
-    # grafana:
-    #   admin:
-    #     existingSecret: "grafana-admin-auth"
-    #     userKey: user
-    #     passwordKey: password
+    grafana:
+      admin:
+        existingSecret: "grafana-admin-auth"
+        userKey: user
+        passwordKey: password
       
-    #   image:
-    #     repository: grafana/grafana
-    #     tag: "7.0.3"
-    #     pullPolicy: IfNotPresent
+      image:
+        repository: grafana/grafana
+        tag: "7.0.3"
+        pullPolicy: IfNotPresent
         
 
       
