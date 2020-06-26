@@ -1,8 +1,0 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: gatekeeper
-  labels:
-    istio-injection: disabled
-    owner: platform
-    type: management

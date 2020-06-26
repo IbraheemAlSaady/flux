@@ -1,4 +1,4 @@
 ---
 resources:
-  - namespace.yaml
-  - gatekeeper.yaml
+  # - namespace.yaml
+  - gatekeeper-plain.yaml
