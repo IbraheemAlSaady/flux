@@ -39,6 +39,3 @@ spec:
         repository: grafana/grafana
         tag: "7.0.3"
         pullPolicy: IfNotPresent
-        
-
-      
