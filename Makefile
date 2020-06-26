@@ -1,4 +1,4 @@
-seal:
+seal-file:
 	mkdir -p .secrets/generated
 
 	kubectl create secret generic $(name) -n $(ns) \
@@ -11,5 +11,15 @@ seal:
 	rm .secrets/generated/$(name).json
 
 external-dns:
-	make seal name=svc-lb-public ns=external-dns file=.secrets/svc-lb-public.yaml
-	make seal name=svc-lb-internal ns=external-dns file=.secrets/svc-lb-internal.yaml
+	make seal-file name=svc-lb-public ns=external-dns file=.secrets/svc-lb-public.yaml
+	make seal-file name=svc-lb-internal ns=external-dns file=.secrets/svc-lb-internal.yaml
+
+grafana-pass:
+	kubectl -n monitoring create secret generic grafana-admin-auth \
+		--from-literal=user=admin \
+		--from-literal=password=$(pass) \
+		--dry-run \
+		-o json > .secrets/grafana-admin-auth.json
+
+	kubeseal --format=yaml --cert=.secrets/cert.pem < .secrets/grafana-admin-auth.json > .secrets/generated/grafana-admin-auth.yaml
+	

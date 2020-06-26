@@ -1,0 +1,17 @@
+---
+  apiVersion: helm.fluxcd.io/v1
+  kind: HelmRelease
+  metadata:
+    name: falco
+    namespace: security
+  spec:
+    chart:
+      repository: https://falcosecurity.github.io/charts
+      name: falco
+      version: "1.1.9"
+    values:
+      image:
+        registry: docker.io
+        repository: falcosecurity/falco
+        tag: "0.23.0"
+        pullPolicy: IfNotPresent
