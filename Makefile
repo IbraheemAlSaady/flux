@@ -16,10 +16,11 @@ external-dns:
 
 grafana-pass:
 	kubectl -n monitoring create secret generic grafana-admin-auth \
-		--from-literal=user=admin \
-		--from-literal=password=$(pass) \
+		--from-literal=admin-user=admin \
+		--from-literal=admin-password=$(pass) \
 		--dry-run \
 		-o json > .secrets/grafana-admin-auth.json
 
 	kubeseal --format=yaml --cert=.secrets/cert.pem < .secrets/grafana-admin-auth.json > .secrets/generated/grafana-admin-auth.yaml
 	
+	# make seal-file name=grafana-admin-auth ns=monitoring file=.secrets/grafana-admin-auth.yaml

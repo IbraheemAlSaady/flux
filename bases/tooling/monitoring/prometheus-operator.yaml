@@ -30,10 +30,10 @@ spec:
           tag: v0.20.0
 
     grafana:
-      # admin:
-      #   existingSecret: "grafana-admin-auth"
-      #   userKey: user
-      #   passwordKey: password
+      admin:
+        existingSecret: "grafana-admin-auth"
+        userKey: admin-user
+        passwordKey: admin-password
       
       image:
         repository: grafana/grafana
