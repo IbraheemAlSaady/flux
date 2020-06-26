@@ -8,6 +8,9 @@ patches:
       path: /metadata/name
       value: svc-lb-internal
     - op: replace
+      path: /spec/values/image/tag
+      value: 0.5.18
+    - op: replace
       path: /spec/valuesFrom/0/secretKeyRef/name
       value: svc-lb-internal
     - op: replace

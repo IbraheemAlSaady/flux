@@ -381,7 +381,7 @@ data:
     deployment:
       accessible_namespaces: ['**']
     login_token:
-      signing_key: "9gQXQIz3Sl"
+      signing_key: "zz3aQuCUsx"
     server:
       port: 20001
       web_root: /kiali
@@ -7568,39 +7568,37 @@ subjects:
 apiVersion: v1
 kind: Service
 metadata:
-  name: istio-internal-ingressgateway
-  namespace: istio-system
   annotations:
-    external-dns.alpha.kubernetes.io/hostname: "istio.kubechamp.gq"
-    service.beta.kubernetes.io/azure-load-balancer-internal: "false"
+    external-dns.alpha.kubernetes.io/hostname: istio.kubechamp.internal
+    service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+    service.beta.kubernetes.io/azure-load-balancer-internal-subnet: snet-demo-main
   labels:
     app: istio-internal-ingressgateway
     custom: ingressgateway
     istio: istio-internal-ingressgateway
     release: istio
+  name: istio-internal-ingressgateway
+  namespace: istio-system
 spec:
-  type: LoadBalancer
+  ports:
+  - name: status-port
+    port: 15021
+    targetPort: 15021
+  - name: http2
+    port: 80
+    targetPort: 8080
+  - name: https
+    port: 443
+    targetPort: 8443
+  - name: tls
+    port: 15443
+    targetPort: 15443
   selector:
     app: istio-internal-ingressgateway
     custom: ingressgateway
     istio: istio-internal-ingressgateway
-  ports:
-    -
-      name: status-port
-      port: 15021
-      targetPort: 15021
-    -
-      name: http2
-      port: 80
-      targetPort: 8080
-    -
-      name: https
-      port: 443
-      targetPort: 8443
-    -
-      name: tls
-      port: 15443
-      targetPort: 15443
+  type: LoadBalancer
+
 ---
 
 
