@@ -8,6 +8,7 @@ resources:
   - ../../bases/tooling/logging
   - ../../bases/tooling/monitoring
   - ../../bases/tooling/security
+  - ../../bases/tooling/gatekeeper
 
   # - ../../bases/rbac
 
