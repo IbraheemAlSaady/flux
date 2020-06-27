@@ -1,6 +1,6 @@
 resources:
+  - ../../bases/rbac
   # - ../../bases/istio
-  # - ../../bases/open-policy-agent
   - ../../bases/tooling/cert-manager
   - ../../bases/tooling/external-dns/core
   - external-dns-svc-lb-public
@@ -9,7 +9,6 @@ resources:
   - ../../bases/tooling/monitoring
   - ../../bases/tooling/security
   - ../../bases/tooling/gatekeeper
-  - ../../bases/rbac
 
 # configMapGenerator:
 # - name: istio
