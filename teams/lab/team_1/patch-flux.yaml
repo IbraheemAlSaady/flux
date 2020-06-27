@@ -8,4 +8,6 @@ spec:
       url: git@github.com:rchrd/helloworld
       path: "deployment"
     allowedNamespaces:
-    - team-1
+      - team-1
+    serviceAccount:
+      name: sre

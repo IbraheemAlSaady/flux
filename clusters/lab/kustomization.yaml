@@ -9,8 +9,7 @@ resources:
   - ../../bases/tooling/monitoring
   - ../../bases/tooling/security
   - ../../bases/tooling/gatekeeper
-
-  # - ../../bases/rbac
+  - ../../bases/rbac
 
 # configMapGenerator:
 # - name: istio
