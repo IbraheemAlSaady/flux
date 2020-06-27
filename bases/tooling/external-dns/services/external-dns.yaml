@@ -16,7 +16,6 @@ spec:
       registry: docker.io
       repository: bitnami/external-dns
       tag: 0.7.0-debian-10-r0
-    provider: azure
   valuesFrom:
   - secretKeyRef:
       name: svc-lb-public
