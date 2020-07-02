@@ -11,4 +11,4 @@ spec:
       - team1
     serviceAccount:
       create: false
-      name: team1
+      name: flux-team

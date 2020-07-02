@@ -8,5 +8,5 @@ roleRef:
   name: flux-readonly
 subjects:
   - kind: ServiceAccount
-    name: team1
+    name: flux-team
     namespace: team1

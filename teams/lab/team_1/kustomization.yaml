@@ -13,12 +13,12 @@ patches:
       path: /metadata/name
       value: team1
 
-- target:
-    kind: ServiceAccount
-  patch: |-
-    - op: replace
-      path: /metadata/name
-      value: team1
+# - target:
+#     kind: ServiceAccount
+#   patch: |-
+#     - op: replace
+#       path: /metadata/name
+#       value: team1
 
 patchesStrategicMerge:
 - patch-flux.yaml
