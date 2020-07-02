@@ -2,7 +2,7 @@ resources:
   - ../../../bases/team-default
   - ../../../bases/flux
 
-namespace: team-1
+namespace: team1
 
 patches:
 - target:
@@ -10,14 +10,14 @@ patches:
   patch: |-
     - op: replace
       path: /metadata/name
-      value: team-1
+      value: team1
 
 - target:
     kind: ServiceAccount
   patch: |-
     - op: replace
       path: /metadata/name
-      value: team-1
+      value: team1
 
 patchesStrategicMerge:
 - patch-flux.yaml

@@ -8,6 +8,6 @@ spec:
       url: git@github.com:kube-champ/fluxcd-multi-tenancy-team1
       path: "kustomization.yaml"
     allowedNamespaces:
-      - team-1
+      - team1
     serviceAccount:
-      name: team-1
+      name: team1
