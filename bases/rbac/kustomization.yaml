@@ -1,3 +1,4 @@
 ---
 resources:
 - team.yaml
+- flux.yaml
