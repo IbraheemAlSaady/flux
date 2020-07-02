@@ -2,13 +2,13 @@ resources:
   - ../../bases/rbac
   # - ../../bases/istio
   - ../../bases/tooling/cert-manager
-  - ../../bases/tooling/external-dns/core
-  - external-dns-svc-lb-public
-  - external-dns-svc-lb-internal
-  - ../../bases/tooling/logging
-  - ../../bases/tooling/monitoring
-  - ../../bases/tooling/security
-  - ../../bases/tooling/gatekeeper
+  # - ../../bases/tooling/external-dns/core
+  # - external-dns-svc-lb-public
+  # - external-dns-svc-lb-internal
+  # - ../../bases/tooling/logging
+  # - ../../bases/tooling/monitoring
+  # - ../../bases/tooling/security
+  # - ../../bases/tooling/gatekeeper
 
 # configMapGenerator:
 # - name: istio
