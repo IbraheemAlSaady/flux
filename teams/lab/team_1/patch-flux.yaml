@@ -5,9 +5,9 @@ metadata:
 spec:
   values:
     git:
-      url: git@github.com:rchrd/helloworld
-      path: "deployment"
+      url: git@github.com:kube-champ/fluxcd-multi-tenancy-team1
+      path: "kustomization.yaml"
     allowedNamespaces:
       - team-1
     serviceAccount:
-      name: sre
+      name: team-1
