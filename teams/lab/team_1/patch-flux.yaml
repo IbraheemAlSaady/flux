@@ -10,5 +10,5 @@ spec:
     allowedNamespaces:
       - team1
     serviceAccount:
-      create: create
-      name: flux-team1
+      create: false
+      name: team1
