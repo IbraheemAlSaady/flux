@@ -15,14 +15,13 @@ rules:
 - apiGroups: ["networking.istio.io"]
   resources: ["virtualservices"]
   verbs: ["get", "list", "patch", "update", "create", "delete"]
-
 ## Flux rules
 - apiGroups: ["helm.fluxcd.io"]
   resources: ["helmreleases"]
   verbs: ["get", "list", "patch", "update", "create", "delete"]
 - apiGroups: ["apiextensions.k8s.io"]
-    resources: ["customresourcedefinitions"]
-    verbs: ["list", "watch"]
+  resources: ["customresourcedefinitions"]
+  verbs: ["list", "watch"]
 - apiGroups: [""]
   resources: ["namespaces"]
   verbs: ["get", "list"]
