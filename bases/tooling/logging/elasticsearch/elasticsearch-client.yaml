@@ -1,0 +1,29 @@
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: elasticsearch-client
+  namespace: logging
+spec:
+  values:
+    clusterName: "elasticsearch"
+    nodeGroup: "client"
+
+    masterService: "elasticsearch-master"
+
+    roles:
+      master: "false"
+      ingest: "false"
+      data: "false"
+
+    replicas: 2
+
+    volumeClaimTemplate:
+      accessModes: [ "ReadWriteOnce" ]
+      # storageClassName: "standard"
+      resources:
+        requests:
+          storage: 1Gi
+
+    persistence:
+      enabled: false

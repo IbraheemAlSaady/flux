@@ -1,0 +1,10 @@
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: does-not-matter
+spec:
+  values:
+    image: "docker.elastic.co/elasticsearch/elasticsearch"
+    imageTag: "7.7.1"
+    imagePullPolicy: "IfNotPresent"

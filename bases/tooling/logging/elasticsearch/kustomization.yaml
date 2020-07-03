@@ -1,0 +1,19 @@
+---
+resources:
+  - elasticsearch-master.yaml
+  - elasticsearch-data.yaml
+  - elasticsearch-client.yaml
+
+patches:
+- path: patch-image.yaml
+  target:
+    group: helm.fluxcd.io
+    version: v1
+    kind: HelmRelease
+    name: elasticsearch-.*
+- path: patch-chart.yaml
+  target:
+    group: helm.fluxcd.io
+    version: v1
+    kind: HelmRelease
+    name: elasticsearch-.*

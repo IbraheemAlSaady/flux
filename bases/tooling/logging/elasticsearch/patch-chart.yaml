@@ -1,0 +1,10 @@
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: does-not-matter
+spec:
+  chart:
+    repository: https://helm.elastic.co
+    name: elasticsearch
+    version: "7.7.1"

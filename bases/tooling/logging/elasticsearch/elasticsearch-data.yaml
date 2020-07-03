@@ -1,0 +1,36 @@
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: elasticsearch-data
+  namespace: logging
+spec:
+  values:
+    clusterName: "elasticsearch"
+    nodeGroup: "data"
+
+    masterService: "elasticsearch-master"
+
+    roles:
+      master: "false"
+      ingest: "true"
+      data: "true"
+
+    replicas: 3
+
+    resources:
+      requests:
+        cpu: "100m"
+        memory: "4Gi"
+      limits:
+        cpu: "1000m"
+        memory: "6Gi"
+
+    esJavaOpts: "-Xmx2g -Xms2g"
+
+    volumeClaimTemplate:
+      accessModes: [ "ReadWriteOnce" ]
+      # storageClassName: "standard"
+      resources:
+        requests:
+          storage: 20Gi

@@ -1,6 +1,4 @@
 ---
-  resources:
+resources:
   - namespace.yaml
-  - grafana-admin-auth.yaml
-  - prometheus-operator.yaml
-  
+  - prometheus-operator
