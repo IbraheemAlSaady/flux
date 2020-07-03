@@ -15,3 +15,6 @@ rules:
 - apiGroups: ["networking.istio.io"]
   resources: ["virtualservices"]
   verbs: ["get", "list", "patch", "update", "create", "delete"]
+- apiGroups: ["helm.fluxcd.io"]
+  resources: ["helmreleases"]
+  verbs: ["get", "list", "patch", "update", "create", "delete"]

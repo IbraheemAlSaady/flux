@@ -13,12 +13,20 @@ patches:
       path: /metadata/name
       value: team1
 
-# - target:
-#     kind: ServiceAccount
-#   patch: |-
-#     - op: replace
-#       path: /metadata/name
-#       value: team1
+- target:
+    kind: ServiceAccount
+  patch: |-
+    - op: replace
+      path: /metadata/name
+      value: team1
+
+- target:
+    kind: RoleBinding
+    name: read-pods
+  patch: |-
+    - op: replace
+      path: /subjects/0/name
+      value: system:serviceaccounts:team1
 
 patchesStrategicMerge:
 - patch-flux.yaml
