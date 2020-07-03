@@ -6,7 +6,7 @@ spec:
   values:
     git:
       url: git@github.com:kube-champ/fluxcd-multi-tenancy-team1
-      path: "deployment"
+      # path: "deployment"
       pollInterval: "1m"
     allowedNamespaces:
       - team1
