@@ -6,3 +6,5 @@ resources:
   - curator
   - fluentd
   - kibana
+
+namespace: logging

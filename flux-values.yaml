@@ -1,7 +1,7 @@
 git:
   url: git@github.com:IbraheemAlSaady/flux
   branch: master
-  path: "teams/lab"
+  path: "clusters/lab,teams/lab"
   pollInterval: 1m
 
 sync:

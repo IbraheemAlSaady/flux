@@ -2,3 +2,5 @@
 resources:
 - namespace.yaml
 - cert-manager.yaml
+
+namespace: cert-manager

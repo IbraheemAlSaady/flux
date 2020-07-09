@@ -2,3 +2,5 @@
 resources:
   - namespace.yaml
   - falco
+
+namespace: security
