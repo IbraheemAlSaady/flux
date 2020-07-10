@@ -1,17 +1,16 @@
-apiVersion: networking.istio.io/v1alpha3
-kind: Gateway
-metadata:
-  name: mygateway
-spec:
-  selector:
-    istio: ingressgateway # use istio default ingress gateway
-  servers:
-  - port:
-      number: 443
-      name: https
-      protocol: HTTPS
-    tls:
-      mode: SIMPLE
-      credentialName: cluster-external-default-cert # must be the same as secret
-    hosts:
-      - "*.kubechamp.gq"
+---
+  apiVersion: helm.fluxcd.io/v1
+  kind: HelmRelease
+  metadata:
+    name: public-gateway
+    namespace: istio-system
+  spec:
+    chart:
+      repository: https://kube-champ.github.io/helm-charts
+      name: istio-gateway
+      version: "0.1.0"
+    values:  # https://hub.helm.sh/charts/fluxcd/flux
+      selector: istio-system/ingressgateway
+
+      hosts:
+        - "*.kubechamp.gq"

@@ -2,3 +2,5 @@
 resources:
 - namespace.yaml
 - generated-manifest.yaml
+- public-gateway.yaml
+- internal-gateway.yaml
