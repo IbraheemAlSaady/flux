@@ -11,5 +11,4 @@ spec:
     allowedNamespaces:
       - team2
     serviceAccount:
-      # create: false
       name: team2
