@@ -1,0 +1,32 @@
+resources:
+  # - rbac.yaml
+  - ../../../bases/team-default
+  - ../../../bases/flux
+
+namespace: team2
+
+patches:
+- target:
+    kind: Namespace
+  patch: |-
+    - op: replace
+      path: /metadata/name
+      value: team2
+
+- target:
+    kind: ServiceAccount
+  patch: |-
+    - op: replace
+      path: /metadata/name
+      value: team2
+
+- target:
+    kind: RoleBinding
+    name: read-pods
+  patch: |-
+    - op: replace
+      path: /subjects/0/name
+      value: system:serviceaccounts:team2
+
+patchesStrategicMerge:
+- patch-flux.yaml

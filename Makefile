@@ -1,3 +1,9 @@
+sealed_secrets_local_cert:
+	kubeseal --fetch-cert \
+		--controller-namespace=kube-system \
+		--controller-name=sealed-secrets \
+	> pub-cert.pem
+
 seal-file:
 	mkdir -p .secrets/generated
 
@@ -24,3 +30,11 @@ grafana-pass:
 	kubeseal --format=yaml --cert=.secrets/cert.pem < .secrets/grafana-admin-auth.json > .secrets/generated/grafana-admin-auth.yaml
 	
 	# make seal-file name=grafana-admin-auth ns=monitoring file=.secrets/grafana-admin-auth.yaml
+
+demo_msg:
+	kubectl -n team2 create secret generic hello-kube-msg \
+		--from-literal=msg="secret hello kubernetes" \
+		--dry-run \
+		-o json > .secrets/generated/msg-secret.json
+
+	kubeseal --format=yaml --cert=.secrets/cert.pem < .secrets/generated/msg-secret.json > .secrets/generated/msg-secret.yaml

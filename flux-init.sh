@@ -15,6 +15,7 @@ if [[ ! -x "$(command -v helm)" ]]; then
 fi
 
 helm repo add fluxcd https://charts.fluxcd.io
+helm repo add sealed-secrets https://kubernetes-charts.storage.googleapis.com
 
 echo ">>> Installing Flux"
 kubectl create ns flux-system || true
@@ -37,6 +38,8 @@ helm upgrade -i helm-operator fluxcd/helm-operator \
 --namespace flux-system
 # --set configureRepositories.enable=true \
 # --set configureRepositories.repositories[0].name=$(ACR.Name),configureRepositories.repositories[0].url=$(ACR.Url),configureRepositories.repositories[0].username=$(KubernetesServicePrincipal.ClientId),configureRepositories.repositories[0].password=$(KubernetesServicePrincipal.ClientSecret) \
+
+helm upgrade -i sealed-secrets sealed-secrets/sealed-secrets --wait --namespace kube-system
 
 echo ">>> GitHub deploy key"
 kubectl -n flux-system logs deployment/flux | grep identity.pub | cut -d '"' -f2

@@ -1,0 +1,15 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: flux
+spec:
+  values:
+    git:
+      url: git@github.com:kube-champ/fluxcd-multi-tenancy-team1
+      path: "deployment2"
+      pollInterval: "1m"
+    allowedNamespaces:
+      - team2
+    serviceAccount:
+      # create: false
+      name: team2
