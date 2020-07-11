@@ -9,8 +9,7 @@
       repository: https://kube-champ.github.io/helm-charts
       name: istio-gateway
       version: "0.1.0"
-    values:  # https://hub.helm.sh/charts/fluxcd/flux
+    values:
       selector: ingressgateway
-
       hosts:
         - "*.kubechamp.gq"
