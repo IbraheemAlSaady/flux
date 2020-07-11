@@ -1,0 +1,35 @@
+resources:
+  # - rbac.yaml
+  - ../../../bases/team-default
+  - ../../../bases/flux
+
+namespace: team3
+
+patches:
+- target:
+    kind: Namespace
+  patch: |-
+    - op: replace
+      path: /metadata/name
+      value: team3
+    - op: replace
+      path: /metadata/labels/istio-injection
+      value: disabled
+
+- target:
+    kind: ServiceAccount
+  patch: |-
+    - op: replace
+      path: /metadata/name
+      value: team3
+
+- target:
+    kind: RoleBinding
+    name: read-pods
+  patch: |-
+    - op: replace
+      path: /subjects/0/name
+      value: system:serviceaccounts:team2
+
+patchesStrategicMerge:
+- patch-flux.yaml
