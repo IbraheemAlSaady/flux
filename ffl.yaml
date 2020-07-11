@@ -49,9 +49,9 @@ spec:
       gateway: istio-system/istio-system-public-gateway
 
       endpoints:
-        - uri: /hello-kube
+        - uri: /hhkk
           destinationPort: 80
-          destinationHost: hello-kube-helm
+          destinationHost: hello-kube-helm.team3.svc.cluster.local
 ---
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -68,6 +68,6 @@ spec:
     http:
       paths:
       - backend:
-          serviceName: hello-kubernetes
-          servicePort: 5000
+          serviceName: hello-kube-helm
+          servicePort: 80
         path: /hello

@@ -10,7 +10,7 @@
       name: istio-gateway
       version: "0.1.0"
     values:  # https://hub.helm.sh/charts/fluxcd/flux
-      selector: istio-system/ingressgateway
+      selector: ingressgateway
 
       hosts:
         - "*.kubechamp.gq"
