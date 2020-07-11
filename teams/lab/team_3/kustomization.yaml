@@ -28,7 +28,7 @@ patches:
   patch: |-
     - op: replace
       path: /subjects/0/name
-      value: system:serviceaccounts:team2
+      value: system:serviceaccounts:team3
 
 patchesStrategicMerge:
 - patch-flux.yaml
