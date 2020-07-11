@@ -1,6 +1,6 @@
 ---
 resources:
   - namespace.yaml
-  - nginx-ingress-public
+  - nginx-ingress-public.yaml
 
 namespace: nginx-ingress
