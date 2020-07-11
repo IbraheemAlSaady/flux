@@ -1,5 +1,4 @@
 resources:
-  - rbac.yaml
   - ../../../bases/team-default
   - ../../../bases/flux
 
