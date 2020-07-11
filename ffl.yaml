@@ -57,16 +57,12 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: hello-kubernetes
-  namespace: testenv
+  namespace: team3
   annotations:
     kubernetes.io/ingress.class: "istio"
     external-dns.alpha.kubernetes.io/hostname: hellokube.kubechamp.gq
     external-dns.alpha.kubernetes.io/target: istio.kubechamp.gq
 spec:
-  # tls:
-  #   - hosts:
-  #     - hellokube.kubechamp.gq
-  #     secretName: hellokube-crt
   rules:
   - host: istio.kubechamp.gq
     http:
@@ -74,4 +70,4 @@ spec:
       - backend:
           serviceName: hello-kubernetes
           servicePort: 5000
-        path: /hh
+        path: /hello
