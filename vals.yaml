@@ -1,0 +1,15 @@
+app:
+  env:
+    - name: "MESSAGE"
+      value: "Hello from deployment flux"
+
+istioVirtualService: true
+
+istio-virtual-service:
+  host: istio.kubechamp.gq
+  gateway: istio-system/istio-system-public-gateway
+
+  endpoints:
+    - uri: /hello-kube
+      destinationPort: 80
+      destinationHost: hello-kube-helm

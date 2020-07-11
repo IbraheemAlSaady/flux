@@ -1,0 +1,18 @@
+resources:
+  - ingress-public.yaml
+  - ../../../bases/tooling/external-dns/services
+
+patches:
+- patch: |-
+    - op: replace
+      path: /metadata/name
+      value: ingress-public
+    - op: replace
+      path: /spec/valuesFrom/0/secretKeyRef/name
+      value: ingress-public
+    - op: replace
+      path: /spec/valuesFrom/0/secretKeyRef/key
+      value: ingress-public.yaml
+  target:
+    kind: HelmRelease
+    name: external-dns

@@ -5,6 +5,7 @@ resources:
   - ../../bases/tooling/external-dns/core
   - external-dns-svc-lb-public
   - external-dns-svc-lb-internal
+  - external-dns-ingress-public
   # - ../../bases/tooling/logging
   # - ../../bases/tooling/monitoring
   # - ../../bases/tooling/security

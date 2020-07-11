@@ -19,9 +19,11 @@ seal-file:
 external-dns:
 	make seal-file name=svc-lb-public ns=external-dns file=.secrets/svc-lb-public.yaml
 	make seal-file name=svc-lb-internal ns=external-dns file=.secrets/svc-lb-internal.yaml
+	make seal-file name=ingress-public ns=external-dns file=.secrets/ingress-public.yaml
 
 	mv .secrets/generated/svc-lb-internal.yaml clusters/lab/external-dns-svc-lb-internal/svc-lb-internal.yaml
 	mv .secrets/generated/svc-lb-public.yaml clusters/lab/external-dns-svc-lb-public/svc-lb-public.yaml
+	mv .secrets/generated/ingress-public.yaml clusters/lab/external-dns-ingress-public/ingress-public.yaml
 
 grafana-pass:
 	kubectl -n monitoring create secret generic grafana-admin-auth \
