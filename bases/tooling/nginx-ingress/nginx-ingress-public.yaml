@@ -1,0 +1,19 @@
+---
+  apiVersion: helm.fluxcd.io/v1
+  kind: HelmRelease
+  metadata:
+    name: nginx-ingress-public
+    namespace: nginx-ingress
+  spec:
+    chart:
+      repository: https://kubernetes-charts.storage.googleapis.com
+      name: nginx-ingress
+      version: "1.40.3"
+    values:
+      controller:
+        type: LoadBalancer
+
+        service:
+          annotations:
+            service.beta.kubernetes.io/azure-load-balancer-internal: "false"
+            external-dns.alpha.kubernetes.io/hostname: ingress.kubechamp.gq
