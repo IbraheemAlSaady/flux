@@ -1,15 +1,22 @@
 ---
-  apiVersion: helm.fluxcd.io/v1
-  kind: HelmRelease
-  metadata:
-    name: public-gateway
-    namespace: istio-system
-  spec:
-    chart:
-      repository: https://kube-champ.github.io/helm-charts
-      name: istio-gateway
-      version: "0.1.0"
-    values:
-      selector: ingressgateway
-      hosts:
-        - "*.kubechamp.gq"
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: public-gateway
+  namespace: istio-system
+spec:
+  releaseName: public-gateway
+  chart:
+    repository: https://kube-champ.github.io/helm-charts
+    name: istio-gateway
+    version: "0.1.0"
+  values:
+    selector: ingressgateway
+    hosts:
+      - "*.kubechamp.gq"
+    tls:
+      mode: SIMPLE
+      # credentialName: istio-ingressgateway-certs
+      serverCertificate: /etc/certs/servercert.pem
+      privateKey: /etc/certs/privatekey.pem
+    

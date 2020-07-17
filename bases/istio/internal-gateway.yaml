@@ -4,11 +4,15 @@ metadata:
   name: internal-gateway
   namespace: istio-system
 spec:
+  releaseName: internal-gateway
   chart:
     repository: https://kube-champ.github.io/helm-charts
     name: istio-gateway
     version: "0.1.0"
   values:
-    selector: istio-system/istio-internal-ingressgateway
+    selector: istio-system/internal-ingressgateway
     hosts:
       - "*.kubechamp.internal"
+    tls:
+      serverCertificate: /etc/certs/servercert.pem
+      privateKey: /etc/certs/privatekey.pem

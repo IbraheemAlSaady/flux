@@ -269,14 +269,14 @@ spec:
           external-dns.alpha.kubernetes.io/hostname: istio.kubechamp.gq
           service.beta.kubernetes.io/azure-load-balancer-internal: "false"
         zvpn: {}
-      # istio-internal-ingressgateway:
-      #   name: istio-internal-ingressgateway
-      #   autoscaleEnabled: true
-      #   type: LoadBalancer
-      #   serviceAnnotations:
-      #     external-dns.alpha.kubernetes.io/hostname: istio.kubechamp.internal
-      #     service.beta.kubernetes.io/azure-load-balancer-internal: "true"
-      #     service.beta.kubernetes.io/azure-load-balancer-internal-subnet: "snet-demo-main"
+      istio-internal-ingressgateway:
+        name: istio-internal-ingressgateway
+        autoscaleEnabled: true
+        type: LoadBalancer
+        serviceAnnotations:
+          external-dns.alpha.kubernetes.io/hostname: istio.kubechamp.internal
+          service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+          service.beta.kubernetes.io/azure-load-balancer-internal-subnet: "snet-demo-main"
     global:
       arch:
         amd64: 2
