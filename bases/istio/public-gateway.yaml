@@ -13,7 +13,7 @@ spec:
   values:
     selector: ingressgateway
     hosts:
-      - "*.kubechamp.gq"
+      - "istio.kubechamp.gq"
     tls:
       mode: SIMPLE
       # credentialName: istio-ingressgateway-certs
