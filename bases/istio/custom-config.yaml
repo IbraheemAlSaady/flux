@@ -117,8 +117,8 @@ spec:
       name: istio-internal-ingressgateway
       namespace: istio-system
       label:
-        app: istio-internal-ingressgateway
-        istio: istio-internal-ingressgateway
+        app: internal-ingressgateway
+        istio: internal-ingressgateway
         custom: ingressgateway
       k8s:
         serviceAnnotations:
