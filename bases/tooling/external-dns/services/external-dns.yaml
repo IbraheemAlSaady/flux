@@ -1,6 +1,7 @@
 ---
 ## docs: using values from secrets: https://docs.fluxcd.io/projects/helm-operator/en/stable/helmrelease-guide/values/
 ## docs: generate the sealedSecret value: https://github.com/fluxcd/helm-operator-get-started#managing-kubernetes-secrets
+## Charts here: https://github.com/bitnami/charts/tree/master/bitnami
 apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
@@ -9,14 +10,14 @@ metadata:
 spec:
   releaseName: PLACEHOLDER
   chart:
-    repository: https://kubernetes-charts.storage.googleapis.com
+    repository: https://charts.bitnami.com/bitnami
     name: external-dns
-    version: "2.20.4"
+    version: "3.2.3"
   values:
     image:
       registry: docker.io
       repository: bitnami/external-dns
-      tag: 0.7.0-debian-10-r0
+      tag: 0.7.2-debian-10-r21
   valuesFrom:
   - secretKeyRef:
       name: PLACEHOLDER
