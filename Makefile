@@ -20,12 +20,12 @@ external-dns:
 	make seal-file name=svc-lb-public ns=external-dns file=.secrets/svc-lb-public.yaml
 	make seal-file name=svc-lb-internal ns=external-dns file=.secrets/svc-lb-internal.yaml
 	make seal-file name=ingress-public ns=external-dns file=.secrets/ingress-public.yaml
-	make seal-file name=istio-virtualservice ns=external-dns file=.secrets/istio-virtualservice.yaml
+	make seal-file name=istio-gateway ns=external-dns file=.secrets/istio-gateway.yaml
 
 	mv .secrets/generated/svc-lb-internal.yaml clusters/lab/external-dns-svc-lb-internal/svc-lb-internal.yaml
 	mv .secrets/generated/svc-lb-public.yaml clusters/lab/external-dns-svc-lb-public/svc-lb-public.yaml
 	mv .secrets/generated/ingress-public.yaml clusters/lab/external-dns-ingress-public/ingress-public.yaml
-	mv .secrets/generated/istio-virtualservice.yaml clusters/lab/external-dns-istio-virtualservice/istio-virtualservice.yaml
+	mv .secrets/generated/istio-gateway.yaml clusters/lab/external-dns-istio-gateway/istio-gateway.yaml
 
 grafana-pass:
 	kubectl -n monitoring create secret generic grafana-admin-auth \
