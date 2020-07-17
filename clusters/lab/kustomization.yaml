@@ -7,6 +7,7 @@ resources:
   - external-dns-svc-lb-public
   - external-dns-svc-lb-internal
   - external-dns-ingress-public
+  - external-dns-istio-virtualservice
   # - ../../bases/tooling/logging
   # - ../../bases/tooling/monitoring
   # - ../../bases/tooling/security

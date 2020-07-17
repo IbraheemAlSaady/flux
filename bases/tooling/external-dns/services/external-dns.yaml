@@ -7,6 +7,7 @@ metadata:
   name: external-dns
   namespace: external-dns
 spec:
+  releaseName: PLACEHOLDER
   chart:
     repository: https://kubernetes-charts.storage.googleapis.com
     name: external-dns
@@ -18,7 +19,7 @@ spec:
       tag: 0.7.0-debian-10-r0
   valuesFrom:
   - secretKeyRef:
-      name: svc-lb-public
+      name: PLACEHOLDER
       namespace: external-dns
-      key: svc-lb-public.yaml
+      key: PLACEHOLDER.yaml
       optional: true
