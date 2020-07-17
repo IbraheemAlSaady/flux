@@ -14,5 +14,8 @@ spec:
     hosts:
       - "*.kubechamp.internal"
     tls:
-      serverCertificate: /etc/certs/servercert.pem
-      privateKey: /etc/certs/privatekey.pem
+      mode: SIMPLE
+      certType: "credentials"
+      credentialName: istio-ingressgateway-certs
+      # serverCertificate: /etc/certs/servercert.pem
+      # privateKey: /etc/certs/privatekey.pem

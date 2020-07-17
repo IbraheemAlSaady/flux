@@ -16,7 +16,8 @@ spec:
       - "istio.kubechamp.gq"
     tls:
       mode: SIMPLE
-      # credentialName: istio-ingressgateway-certs
-      serverCertificate: /etc/certs/servercert.pem
-      privateKey: /etc/certs/privatekey.pem
+      certType: "credentials"
+      credentialName: istio-ingressgateway-certs
+      # serverCertificate: /etc/certs/servercert.pem
+      # privateKey: /etc/certs/privatekey.pem
     
