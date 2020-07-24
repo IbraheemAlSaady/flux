@@ -5,6 +5,7 @@ metadata:
   name: kibana
   namespace: logging
 spec:
+  releaseName: kibana
   chart:
     repository: https://helm.elastic.co
     name: kibana

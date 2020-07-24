@@ -2,5 +2,8 @@
 resources:
   - namespace.yaml
   - default-cert.yaml
+  - prometheus.yaml
   - public-gateway.yaml
   # - internal-gateway.yaml
+
+namespace: istio-system

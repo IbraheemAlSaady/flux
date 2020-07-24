@@ -1,0 +1,5 @@
+resources:
+  - all-in-one.yaml
+  - kiali
+
+namespace: kiali-operator

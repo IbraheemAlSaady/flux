@@ -5,6 +5,7 @@
     name: curator
     namespace: logging
   spec:
+    releaseName: curator
     chart:
       repository: https://kubernetes-charts.storage.googleapis.com
       name: elasticsearch-curator

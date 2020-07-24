@@ -5,6 +5,7 @@ metadata:
   name: elasticsearch-client
   namespace: logging
 spec:
+  releaseName: elasticsearch-client
   values:
     clusterName: "elasticsearch"
     nodeGroup: "client"

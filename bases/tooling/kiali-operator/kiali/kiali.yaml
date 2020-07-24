@@ -1,0 +1,60 @@
+apiVersion: kiali.io/v1alpha1
+kind: Kiali
+metadata:
+  name: kiali
+  annotations:
+    ansible.operator-sdk/verbosity: "1"
+spec:
+  istio_namespace: istio-system
+  version: "default"
+  auth:
+    strategy: "token"
+  api:
+    namespaces:
+      exclude:
+        - kiali-operator
+        - istio-system
+        - kube-*
+        - flux-system
+        - fluentbit
+        - eventrouter
+        - default 
+  deployment:
+    secret_name: 'kiali'
+    accessible_namespaces: ["monitoring", "logging"]
+    image_name: "quay.io/kiali/kiali"
+    image_pull_policy: "IfNotPresent"
+    image_version: "v1.21"
+    ingress_enabled: false
+    namespace: "monitoring"
+    service_type: "ClusterIP"
+    # Typical values are "3" for INFO and higher priority, "4" for DEBUG and higher priority.
+    verbose_mode: "3"
+    view_only_mode: "true"
+  external_services:
+    grafana:
+      enabled: true
+      auth:
+        username: "secret:grafana-admin-auth:admin-user"
+        password: "secret:grafana-admin-auth:admin-password"
+        type: basic
+        use_kiali_token: false
+      in_cluster_url: http://monitoring-prometheus-operator-grafana.monitoring.svc.cluster.local
+      # url: "grafana.main.clusters-dev.internal"
+    prometheus:
+      auth:
+        # username: "secret:<secretName>:<secretKey>"
+        # password: "secret:<secretName>:<secretKey>"
+        type: none # basic for username/password
+        use_kiali_token: false
+      url: http://prometheus.istio-system.svc.cluster.local:9090
+    tracing:
+      enabled: false
+      # auth:
+      #   password: ${KIALI_EXTERNAL_SERVICES_PASSWORD}
+      #   type: basic
+      #   use_kiali_token: false
+      #   username: internal
+      # in_cluster_url: https://tracing.${NAMESPACE}.svc:16686
+      # url: 
+  installation_tag: Kiali-service-mesh

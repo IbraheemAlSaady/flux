@@ -9,8 +9,8 @@ resources:
   - external-dns-svc-lb-internal
   - external-dns-ingress-public
   - external-dns-istio-gateway
+  - ../../bases/tooling/monitoring
   # - ../../bases/tooling/logging
-  # - ../../bases/tooling/monitoring
   # - ../../bases/tooling/security
   # - ../../bases/tooling/gatekeeper
 

@@ -5,6 +5,7 @@
     name: cerebro
     namespace: logging
   spec:
+    releaseName: cerebro
     chart:
       repository: https://kubernetes-charts.storage.googleapis.com
       name: cerebro

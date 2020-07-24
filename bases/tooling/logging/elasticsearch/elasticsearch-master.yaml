@@ -5,6 +5,7 @@ metadata:
   name: elasticsearch-master
   namespace: logging
 spec:
+  releaseName: elasticsearch-master
   values:
     clusterName: "elasticsearch"
     nodeGroup: "master"

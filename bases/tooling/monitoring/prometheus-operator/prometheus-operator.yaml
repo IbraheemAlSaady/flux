@@ -6,6 +6,7 @@ metadata:
   name: prometheus-operator
   namespace: monitoring
 spec:
+  releaseName: prometheus-operator
   chart:
     repository: https://kubernetes-charts.storage.googleapis.com
     name: prometheus-operator
