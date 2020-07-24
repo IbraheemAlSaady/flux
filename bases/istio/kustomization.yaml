@@ -1,7 +1,0 @@
----
-resources:
-- namespace.yaml
-- default-cert.yaml
-- generated-manifest.yaml
-# - public-gateway.yaml
-# - internal-gateway.yaml

@@ -45,3 +45,6 @@ demo_msg:
 		-o json > .secrets/generated/msg-secret.json
 
 	kubeseal --format=yaml --cert=.secrets/cert.pem < .secrets/generated/msg-secret.json > .secrets/generated/msg-secret.yaml
+
+istio-manifest:
+	cd bases/istio; sh generate-manifest.sh $(version)

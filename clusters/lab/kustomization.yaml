@@ -1,6 +1,7 @@
 resources:
   - ../../bases/rbac
-  - ../../bases/istio
+  - ../../bases/istio/core
+  - ../../bases/istio/1.6.5
   - ../../bases/tooling/nginx-ingress
   - ../../bases/tooling/cert-manager
   - ../../bases/tooling/external-dns/core
