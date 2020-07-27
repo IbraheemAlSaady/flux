@@ -12,3 +12,4 @@ docker container run \
     # profile list
     # profile dump default > tes.yaml
     
+echo ">>> Manifest was generated successfully"

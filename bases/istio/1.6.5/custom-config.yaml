@@ -7,7 +7,7 @@ spec:
     grafana:
       enabled: false
     prometheus:
-      enabled: false
+      enabled: true
   components:
     cni:
       enabled: true
