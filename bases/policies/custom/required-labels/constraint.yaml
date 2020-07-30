@@ -1,0 +1,13 @@
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: k8sCheckedNSLabels
+metadata:
+  name: ns-gk-restricted
+spec:
+  enforcementAction: deny
+  match:
+    kinds:
+      - apiGroups: [""]
+        kinds: ["Pod"]
+  parameters:
+    profiles: ['restricted', 'default', 'loose']
+    labels: ['owner']

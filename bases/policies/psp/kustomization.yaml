@@ -1,0 +1,4 @@
+resources:
+  - config.yaml
+  - allow-privilege-escalation/template.yaml
+  - privileged-containers/template.yaml

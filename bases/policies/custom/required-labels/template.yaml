@@ -1,0 +1,47 @@
+apiVersion: templates.gatekeeper.sh/v1beta1
+kind: ConstraintTemplate
+metadata:
+  name: k8scheckednslabels
+spec:
+  crd:
+    spec:
+      names:
+        kind: k8sCheckedNSLabels
+        listKind: k8sCheckedNSLabelsList
+        plural: k8sCheckedNSLabels
+        singular: k8sCheckedNSLabels
+      validation:
+        # Schema for the `parameters` field
+        openAPIV3Schema:
+          properties:
+            profiles:
+              type: array
+              items: string
+            labels:
+              type: array
+              items: string
+  targets:
+    - target: admission.k8s.gatekeeper.sh
+      rego: |
+        package k8scheckednslabels
+
+        violation[{"msg": msg, "details": {"missing_labels": missing}}] {
+          ns_profile := data.inventory.cluster["v1"].Namespace[_].metadata.labels.gatekeeperProfile
+          check_ns_profile(ns_profile)
+
+          provided := {label | input.review.object.metadata.labels[label]}
+          required := {label | label := input.parameters.labels[_]}
+          missing := required - provided
+          count(missing) > 0
+          msg := sprintf("namespace has label profile is: \"%v\", you must provide labels: %v", [ns_profile, missing])
+        }
+
+        check_ns_profile(ns_profile) {
+          contains(input.parameters.profiles, ns_profile)
+        }
+
+        contains(profiles, elem) {
+          profiles[_] = elem
+        }
+
+        
