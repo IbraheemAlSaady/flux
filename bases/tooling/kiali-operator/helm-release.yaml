@@ -1,0 +1,15 @@
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: kiali-operator
+  namespace: istio-system
+spec:
+  chart:
+    repository: https://kiali.org/helm-charts/
+    name: kiali-operator
+    version: 1.22.1
+  values:
+    cr:
+      namespace: istio-system
+      create: true
