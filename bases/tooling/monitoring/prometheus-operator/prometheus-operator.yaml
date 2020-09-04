@@ -14,7 +14,7 @@ spec:
   values:
     grafana:
       admin:
-        existingSecret: "grafana-admin-auth"
+        existingSecret: "grafana-admin-credentials"
         userKey: admin-user
         passwordKey: admin-password
       
