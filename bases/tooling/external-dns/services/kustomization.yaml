@@ -1,4 +1,0 @@
----
-  resources:
-    - external-dns.yaml
-  

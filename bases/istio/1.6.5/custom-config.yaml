@@ -30,10 +30,3 @@ spec:
             external-dns.alpha.kubernetes.io/hostname: istio.kubechamp.internal
             service.beta.kubernetes.io/azure-load-balancer-internal: "true"
             service.beta.kubernetes.io/azure-load-balancer-internal-subnet: snet-demo-main
-  hub: docker.io/istio
-  values:
-    global:
-      istioNamespace: istio-system  # TODO remove, it is the default
-      defaultNodeSelector:
-        beta.kubernetes.io/os: linux
-      controlPlaneSecurityEnabled: true  # TODO remove, it is the default

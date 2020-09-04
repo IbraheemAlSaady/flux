@@ -1,0 +1,5 @@
+---
+resources:
+  - external-dns.yaml
+
+namespace: external-dns

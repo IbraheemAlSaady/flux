@@ -12,20 +12,19 @@ seal-file:
 	--dry-run \
 	-o json > .secrets/generated/$(name).json
 
-	kubeseal --format=yaml --cert=.secrets/cert.pem < .secrets/generated/$(name).json > .secrets/generated/$(name).yaml
+	kubeseal --format=yaml --cert=.secrets/cert.pem \
+		--scope=strict \
+		--namespace=$(ns) < .secrets/generated/$(name).json > .secrets/generated/$(name).yaml
 
 	rm .secrets/generated/$(name).json
 
 external-dns:
-	make seal-file name=svc-lb-public ns=external-dns file=.secrets/svc-lb-public.yaml
-	make seal-file name=svc-lb-internal ns=external-dns file=.secrets/svc-lb-internal.yaml
-	make seal-file name=ingress-public ns=external-dns file=.secrets/ingress-public.yaml
-	make seal-file name=istio-gateway ns=external-dns file=.secrets/istio-gateway.yaml
+	@[ "${env}" ] || ( echo "*** env is not set"; exit 1 )
+	@[ "${cluster}" ] || ( echo "*** cluster is not set"; exit 1 )
 
-	mv .secrets/generated/svc-lb-internal.yaml clusters/lab/external-dns-svc-lb-internal/svc-lb-internal.yaml
-	mv .secrets/generated/svc-lb-public.yaml clusters/lab/external-dns-svc-lb-public/svc-lb-public.yaml
-	mv .secrets/generated/ingress-public.yaml clusters/lab/external-dns-ingress-public/ingress-public.yaml
-	mv .secrets/generated/istio-gateway.yaml clusters/lab/external-dns-istio-gateway/istio-gateway.yaml
+	make seal-file name=external-dns-credentials ns=external-dns file=.secrets/external-dns-credentials.yaml
+
+	mv .secrets/generated/external-dns-credentials.yaml clusters/$(env)/$(cluster)/external-dns-credentials.yaml
 
 grafana-pass:
 	kubectl -n monitoring create secret generic grafana-admin-auth \

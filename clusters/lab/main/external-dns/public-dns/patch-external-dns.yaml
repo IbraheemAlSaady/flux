@@ -1,0 +1,25 @@
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: external-dns
+  namespace: external-dns
+spec:
+  releaseName: external-dns-public
+  values:
+    provider: azure
+    sources:
+      - service
+      - ingress
+      - istio-virtualservice
+    azure:
+      resourceGroup: "rg-demo-infra"
+    domainFilters:
+      - kubechamp.gq
+    txtOwnerId: lab.main.external-dns-public
+  valuesFrom:
+    - secretKeyRef:
+        key: external-dns-credentials.yaml
+        name: external-dns-credentials
+        namespace: external-dns
+        optional: false

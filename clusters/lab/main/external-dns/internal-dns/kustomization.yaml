@@ -1,0 +1,8 @@
+---
+nameSuffix: -internal
+
+resources:
+  - ../../../../../bases/tooling/external-dns
+
+patchesStrategicMerge:
+  - patch-external-dns.yaml

@@ -6,18 +6,24 @@ apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
   name: external-dns
-  namespace: external-dns
 spec:
   releaseName: PLACEHOLDER
   chart:
     repository: https://charts.bitnami.com/bitnami
     name: external-dns
-    version: "3.2.3"
+    version: "3.3.0"
   values:
+    provider: PLACEHOLDER
+    sources:
+      - service
     image:
       registry: docker.io
       repository: bitnami/external-dns
-      tag: 0.7.2-debian-10-r21
+      tag: 0.7.3-debian-10-r11
+    rbac:
+      serviceAccountName: external-dns
+    policy: sync
+    logLevel: info
   valuesFrom:
   - secretKeyRef:
       name: PLACEHOLDER

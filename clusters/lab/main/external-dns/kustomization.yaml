@@ -1,0 +1,7 @@
+---
+resources:
+  - namespace.yaml
+  - public-dns
+  - internal-dns
+
+namespace: external-dns

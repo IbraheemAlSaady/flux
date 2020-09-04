@@ -1,0 +1,29 @@
+resources:
+  # - ../../../bases/rbac
+  # - ../../../bases/istio/core
+  # - ../../../bases/istio/1.6.5
+  # - ../../../bases/tooling/cert-manager
+  # - ../../../bases/tooling/monitoring
+  # - ../../../bases/tooling/logging
+  - external-dns-credentials.yaml
+  - external-dns
+
+# patches:
+#   - target:
+#       kind: Service
+#       name: internal-ingressgateway
+#     patch: |-
+#       - op: add
+#         path: /metadata/annotations/external-dns.alpha.kubernetes.io~1hostname
+#         value: istio-internal.main.clusters-dev.internal
+#   - target:
+#       kind: Service
+#       name: istio-ingressgateway
+#     patch: |-
+#       - op: add
+#         path: /metadata/annotations
+#         value:
+#           external-dns.alpha.kubernetes.io/hostname: istio.main.kubechamp.gq
+
+# patchesStrategicMerge:
+#   - patch-external-dns.yaml
