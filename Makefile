@@ -27,14 +27,21 @@ external-dns:
 	mv .secrets/generated/external-dns-credentials.yaml clusters/$(env)/$(cluster)/external-dns-credentials.yaml
 
 grafana-pass:
-	kubectl -n monitoring create secret generic grafana-admin-auth \
+	@[ "${env}" ] || ( echo "*** env is not set"; exit 1 )
+	@[ "${cluster}" ] || ( echo "*** cluster is not set"; exit 1 )
+	@[ "${namespace}" ] || ( echo "*** namespace is not set"; exit 1 )
+
+	kubectl -n monitoring create secret generic grafana-admin-credentials \
 		--from-literal=admin-user=admin \
 		--from-literal=admin-password=$(pass) \
 		--dry-run \
-		-o json > .secrets/grafana-admin-auth.json
+		-o json > .secrets/grafana-admin-credentials.json
 
-	kubeseal --format=yaml --cert=.secrets/cert.pem < .secrets/grafana-admin-auth.json > .secrets/generated/grafana-admin-auth.yaml
+	kubeseal --format=yaml --cert=.secrets/cert.pem \
+		--scope=strict \
+		--namespace=$(namespace) < .secrets/grafana-admin-credentials.json > .secrets/generated/grafana-admin-credentials.yaml
 	
+	mv .secrets/generated/grafana-admin-credentials.yaml clusters/$(env)/$(cluster)/grafana-admin-credentials.yaml
 	# make seal-file name=grafana-admin-auth ns=monitoring file=.secrets/grafana-admin-auth.yaml
 
 ss-kiali-login:

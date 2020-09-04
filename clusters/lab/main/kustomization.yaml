@@ -3,9 +3,10 @@ resources:
   - ../../../bases/tooling/cert-manager
   - ../../../bases/istio/core
   - ../../../bases/istio/1.6.5
-  # - ../../../bases/tooling/monitoring
+  - ../../../bases/tooling/monitoring
   # - ../../../bases/tooling/logging
   - external-dns-credentials.yaml
+  - grafana-admin-credentials.yaml
   - external-dns
 
 # patches:

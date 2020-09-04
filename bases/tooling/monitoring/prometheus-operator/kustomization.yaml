@@ -1,3 +1,2 @@
 resources:
   - prometheus-operator.yaml
-  - grafana-admin-auth.yaml
