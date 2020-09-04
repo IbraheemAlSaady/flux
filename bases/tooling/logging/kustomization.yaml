@@ -1,10 +1,12 @@
 ---
 resources:
   - namespace.yaml
-  - elasticsearch
-  - cerebro
-  - curator
-  - fluentd
-  - kibana
+  - loki
+  - promtail
+  # - elasticsearch
+  # - cerebro
+  # - curator
+  # - fluentd
+  # - kibana
 
 namespace: logging

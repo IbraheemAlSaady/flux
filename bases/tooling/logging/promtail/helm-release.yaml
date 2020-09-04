@@ -1,0 +1,15 @@
+---
+  apiVersion: helm.fluxcd.io/v1
+  kind: HelmRelease
+  metadata:
+    name: promtail
+  spec:
+    releaseName: promtail
+    chart:
+      repository: https://grafana.github.io/loki/charts
+      name: promtail
+      version: "0.24.0"
+    values:
+      loki:
+        serviceName: loki
+  
