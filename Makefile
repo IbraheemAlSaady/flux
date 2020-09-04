@@ -30,6 +30,7 @@ grafana-pass:
 	@[ "${env}" ] || ( echo "*** env is not set"; exit 1 )
 	@[ "${cluster}" ] || ( echo "*** cluster is not set"; exit 1 )
 	@[ "${namespace}" ] || ( echo "*** namespace is not set"; exit 1 )
+	@[ "${pass}" ] || ( echo "*** namespace is not set"; exit 1 )
 
 	kubectl -n monitoring create secret generic grafana-admin-credentials \
 		--from-literal=admin-user=admin \
