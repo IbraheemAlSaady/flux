@@ -30,3 +30,4 @@ resources:
 
 patchesStrategicMerge:
   - patch-hostnames.yaml
+  - patch-promtail.yaml

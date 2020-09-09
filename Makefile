@@ -84,3 +84,6 @@ encrypt-all:
 	make external-dns env=lab cluster=main
 	make grafana-pass env=lab cluster=main namespace=monitoring pass=P@ssw0rd
 	# make ss-kiali-login env=lab cluster=main namespace=monitoring username=admin password=admin
+
+check: 
+	sh kustomize-check.sh

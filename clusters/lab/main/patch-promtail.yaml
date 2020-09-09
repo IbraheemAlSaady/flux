@@ -1,0 +1,11 @@
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: promtail
+  namespace: logging
+spec:
+  values:
+    loki:
+      serviceName: loki.main.kubechamp.internal
+  
