@@ -22,6 +22,8 @@ spec:
       tag: 0.7.3-debian-10-r11
     rbac:
       serviceAccountName: external-dns
+    registry: "txt"
+    txtPrefix: "txt."
     policy: sync
     logLevel: info
   valuesFrom:
