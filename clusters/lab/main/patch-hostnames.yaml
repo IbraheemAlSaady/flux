@@ -5,7 +5,7 @@
 apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
-  name: nginx-ingress-internal
+  name: ingress-nginx-internal
   namespace: nginx-ingress
 spec:
   values:
