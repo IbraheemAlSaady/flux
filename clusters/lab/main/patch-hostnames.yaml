@@ -57,7 +57,7 @@ spec:
       hosts:
         - host: loki.main.kubechamp.internal
           paths:
-            - /*
+            - /
       tls: []
       #  - secretName: chart-example-tls
       #    hosts:
