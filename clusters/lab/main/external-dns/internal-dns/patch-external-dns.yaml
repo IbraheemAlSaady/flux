@@ -13,7 +13,7 @@ spec:
       - ingress
       - istio-virtualservice
     azure:
-      resourceGroup: "rg-demo-infra"
+      resourceGroup: "rg-lab-infra"
     domainFilters:
       - kubechamp.internal
     txtOwnerId: lab.main.external-dns-internal
