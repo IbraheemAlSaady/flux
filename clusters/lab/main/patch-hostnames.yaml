@@ -37,3 +37,27 @@ metadata:
     external-dns.alpha.kubernetes.io/hostname: istio.main.kubechamp.internal
     service.beta.kubernetes.io/azure-load-balancer-internal: "true"
     service.beta.kubernetes.io/azure-load-balancer-internal-subnet: snet-lab-main
+---
+########################################
+########### Loki
+########################################
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: loki
+  namespace: logging
+spec:
+  values:
+    ingress:
+      enabled: true
+      annotations:
+        external-dns.alpha.kubernetes.io/hostname: loki.main.kubechamp.internal
+        external-dns.alpha.kubernetes.io/target: istio.main.kubechamp.internal
+      hosts:
+        - host: loki.main.kubechamp.internal
+          paths:
+            - /*
+      tls: []
+      #  - secretName: chart-example-tls
+      #    hosts:
+      #      - chart-example.local

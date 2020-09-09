@@ -1,5 +1,5 @@
 resources:
-  - all-in-one.yaml
+  - helm-release.yaml
   - kiali
 
-namespace: kiali-operator
+namespace: istio-system
