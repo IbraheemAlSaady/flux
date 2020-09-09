@@ -5,6 +5,7 @@ resources:
   - ../../../bases/istio/1.6.5
   - ../../../bases/tooling/monitoring
   - ../../../bases/tooling/logging
+  - ../../../bases/tooling/nginx-ingress
   - external-dns-credentials.yaml
   - grafana-admin-credentials.yaml
   - kiali.yaml
@@ -27,5 +28,5 @@ resources:
 #         value:
 #           external-dns.alpha.kubernetes.io/hostname: istio.main.kubechamp.gq
 
-# patchesStrategicMerge:
-#   - patch-external-dns.yaml
+patchesStrategicMerge:
+  - patch-hostnames.yaml

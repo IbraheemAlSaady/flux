@@ -1,0 +1,39 @@
+---
+########################################
+########### Nginx Controller
+########################################
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: nginx-ingress-internal
+  namespace: nginx-ingress
+spec:
+  values:
+    controller:
+      service:
+        enabled: true
+        annotations:
+          external-dns.alpha.kubernetes.io/hostname: nginx.kubechamp.internal
+          service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+          service.beta.kubernetes.io/azure-load-balancer-internal-subnet: snet-lab-main
+---
+########################################
+########### Istio
+########################################
+apiVersion: v1
+kind: Service
+metadata:
+  name: istio-ingressgateway
+  namespace: istio-system
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: istio.main.kubechamp.gq
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: internal-ingressgateway
+  namespace: istio-system
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: istio.main.kubechamp.internal
+    service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+    service.beta.kubernetes.io/azure-load-balancer-internal-subnet: snet-lab-main
