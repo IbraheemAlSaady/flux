@@ -13,7 +13,7 @@ spec:
       service:
         enabled: true
         annotations:
-          external-dns.alpha.kubernetes.io/hostname: nginx.kubechamp.internal
+          external-dns.alpha.kubernetes.io/hostname: nginx.main.kubechamp.internal
           service.beta.kubernetes.io/azure-load-balancer-internal: "true"
           service.beta.kubernetes.io/azure-load-balancer-internal-subnet: snet-lab-main
 ---
