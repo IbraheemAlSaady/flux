@@ -9,4 +9,6 @@ spec:
     repository: https://grafana.github.io/loki/charts
     name: loki
     version: "0.31.0"
-  values: {}
+  values:
+    service:
+      port: 80

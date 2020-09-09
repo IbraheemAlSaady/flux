@@ -10,6 +10,6 @@
       name: promtail
       version: "0.24.0"
     values: {}
-      # loki:
-      #   serviceName: loki
+      loki:
+        servicePort: 80
   
