@@ -51,8 +51,9 @@ spec:
     ingress:
       enabled: true
       annotations:
+        kubernetes.io/ingress.class: "nginx-internal"
         external-dns.alpha.kubernetes.io/hostname: loki.main.kubechamp.internal
-        external-dns.alpha.kubernetes.io/target: istio.main.kubechamp.internal
+        external-dns.alpha.kubernetes.io/target: nginx.main.kubechamp.internal
       hosts:
         - host: loki.main.kubechamp.internal
           paths:
