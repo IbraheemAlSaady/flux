@@ -47,6 +47,7 @@ grafana-pass:
 
 ss-kiali-login:
 	@[ "${env}" ] || ( echo "*** env is not set"; exit 1 )
+	@[ "${cluster}" ] || ( echo "*** cluster is not set"; exit 1 )
 	@[ "${namespace}" ]   || ( echo "*** namespace is not set"; exit 1 )
 	@[ "${username}" ] || ( echo "*** username is not set"; exit 1 )
 	@[ "${password}" ]   || ( echo "*** password is not set"; exit 1 )
@@ -57,11 +58,11 @@ ss-kiali-login:
 		--dry-run \
 		-o json > kiali.json
 
-	kubeseal --format=yaml --cert=certs/$(env).pem \
+	kubeseal --format=yaml --cert=.secrets/cert.pem \
 		--scope=strict \
 		--namespace=$(namespace) < kiali.json > kiali.yaml
 
-	mv kiali.yaml clusters/$(env)
+	mv kiali.yaml clusters/$(env)/$(cluster)
 	rm kiali.json
 
 	echo "\n>>> Kiali admin login credentials encrypted succesfully"
@@ -78,3 +79,8 @@ istio-manifest:
 	@[ "${version}" ] || ( echo "*** version is not set"; exit 1 )
 
 	cd bases/istio; sh generate-manifest.sh $(version)
+
+encrypt-all:
+	make external-dns env=lab cluster=main
+	make grafana-pass env=lab cluster=main namespace=monitoring pass=P@ssw0rd
+	# make ss-kiali-login env=lab cluster=main namespace=monitoring username=admin password=admin
