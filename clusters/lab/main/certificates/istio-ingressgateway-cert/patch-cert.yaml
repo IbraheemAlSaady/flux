@@ -1,0 +1,11 @@
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: default-cert
+spec:
+  releaseName: istio-ingressgateway-certs
+  values:
+    secretName: istio-ingressgateway-certs
+    dnsNames:
+      - "*.kubechamp.gq"

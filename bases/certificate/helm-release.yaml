@@ -1,0 +1,17 @@
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: default-cert
+spec:
+  releaseName: default-cert
+  chart:
+    repository: https://kube-champ.github.io/helm-charts
+    name: cert-manager-certificate
+    version: "0.1.0"
+  values:
+    issuerKind: ClusterIssuer
+    issuerRefName: selfsigned-issuer
+    secretName: default-cert
+    # dnsNames:
+    #   - "*.kubechamp.gq"

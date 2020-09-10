@@ -1,0 +1,16 @@
+resources:
+  - ../../../../../bases/certificate
+
+namespace: nginx-ingress
+
+patches:
+  - target:
+      kind: HelmRelease
+      name: default-cert
+    patch: |-
+      - op: replace
+        path: /metadata/name
+        value: nginx-ingress-cert
+
+patchesStrategicMerge:
+  - patch-cert.yaml

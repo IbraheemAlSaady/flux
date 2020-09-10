@@ -1,0 +1,16 @@
+resources:
+  - ../../../../../bases/certificate
+
+namespace: istio-system
+
+patches:
+  - target:
+      kind: HelmRelease
+      name: default-cert
+    patch: |-
+      - op: replace
+        path: /metadata/name
+        value: istio-ingressgateway-certs
+
+patchesStrategicMerge:
+  - patch-cert.yaml

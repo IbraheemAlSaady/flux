@@ -1,0 +1,15 @@
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: selfsigned-issuer
+spec:
+  releaseName: selfsigned-issuer
+  chart:
+    repository: https://kube-champ.github.io/helm-charts
+    name: cert-manager-issuer
+    version: "0.1.0"
+  values:
+    kind: ClusterIssuer
+    issuerType: selfSigned
+    selfSigned: {}

@@ -1,0 +1,11 @@
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: default-cert
+spec:
+  releaseName: nginx-ingress-cert
+  values:
+    secretName: nginx-ingress-cert
+    dnsNames:
+      - "*.kubechamp.internal"

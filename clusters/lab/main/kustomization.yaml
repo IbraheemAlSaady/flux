@@ -6,6 +6,7 @@ resources:
   - ../../../bases/tooling/monitoring
   - ../../../bases/tooling/logging
   - ../../../bases/tooling/nginx-ingress
+  - certificates
   - external-dns-credentials.yaml
   - grafana-admin-credentials.yaml
   - kiali.yaml
