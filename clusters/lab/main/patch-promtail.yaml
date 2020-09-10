@@ -7,6 +7,6 @@ metadata:
 spec:
   values:
     loki:
-      serviceName: hello-loki.kubechamp.internal
+      serviceName: loki.main.kubechamp.internal
       serviceScheme: https
       servicePort: 443
