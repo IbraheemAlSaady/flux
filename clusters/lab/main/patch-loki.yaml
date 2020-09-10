@@ -5,6 +5,6 @@
     name: loki
     namespace: logging
   spec:
-    values:
-      service:
-        port: 443
+    values: {}
+      # service:
+        # port: 3100

@@ -9,4 +9,4 @@ spec:
     loki:
       serviceName: loki.main.kubechamp.internal
       serviceScheme: https
-      servicePort: 443
+      # servicePort: 3100
