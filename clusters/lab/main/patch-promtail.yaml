@@ -5,8 +5,8 @@ metadata:
   name: promtail
   namespace: logging
 spec:
-  values: {}
-    # loki:
-      # serviceName: loki.main.kubechamp.internal
-      # serviceScheme: https
-      # servicePort: 3100
+  values:
+    loki:
+      serviceName: hello-loki.kubechamp.internal
+      serviceScheme: https
+      # servicePort: 443

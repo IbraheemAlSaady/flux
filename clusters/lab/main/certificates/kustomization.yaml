@@ -1,4 +1,4 @@
 resources:
   - ../../../../bases/certificate-issuer
   - istio-ingressgateway-cert
-  - nginx-ingress-cert
+  # - nginx-ingress-cert
