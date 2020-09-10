@@ -8,4 +8,5 @@ spec:
   values:
     loki:
       serviceName: loki.main.kubechamp.internal
+      serviceScheme: https
   
