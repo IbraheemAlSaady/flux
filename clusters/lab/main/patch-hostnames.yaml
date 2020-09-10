@@ -61,6 +61,6 @@ spec:
           paths:
             - /
       tls:
-       - secretName: nginx-ingress/nginx-ingress-cert
+       - secretName: nginx-ingress-cert
          hosts:
            - loki.main.kubechamp.internal
