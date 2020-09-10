@@ -9,6 +9,4 @@ spec:
     repository: https://grafana.github.io/loki/charts
     name: promtail
     version: "0.24.0"
-  values:
-    loki:
-      servicePort: 80
+  values: {}

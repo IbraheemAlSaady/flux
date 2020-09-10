@@ -31,4 +31,5 @@ resources:
 
 patchesStrategicMerge:
   - patch-hostnames.yaml
+  - patch-loki.yaml
   - patch-promtail.yaml
