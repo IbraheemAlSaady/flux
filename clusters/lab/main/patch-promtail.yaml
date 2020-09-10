@@ -9,4 +9,4 @@ spec:
     loki:
       serviceName: hello-loki.kubechamp.internal
       serviceScheme: https
-      # servicePort: 443
+      servicePort: 443
