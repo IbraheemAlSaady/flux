@@ -1,7 +1,7 @@
 resources:
   - ../../../../../bases/certificate
 
-namespace: nginx-ingress
+namespace: cert-manager
 
 patches:
   - target:

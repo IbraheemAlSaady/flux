@@ -9,3 +9,5 @@ spec:
     secretName: nginx-ingress-cert
     dnsNames:
       - "*.kubechamp.internal"
+    isCA: true
+    commonName: nginx-ingress-cert
