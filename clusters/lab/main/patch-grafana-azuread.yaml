@@ -18,5 +18,5 @@
             scopes: ""
             auth_url: https://login.microsoftonline.com/bc98b8b4-4657-4019-b79b-5a7ebfcba2b7/oauth2/v2.0/authorize
             token_url: https://login.microsoftonline.com/bc98b8b4-4657-4019-b79b-5a7ebfcba2b7/oauth2/v2.0/token
-            allowed_domains: "super7elbehhotmail.onmicrosoft.com"
+            allowed_domains: super7elbehhotmail.onmicrosoft.com hotmail.com gmail.com
             allowed_groups: 285cf1a4-ec98-473b-beaf-2244413de746
