@@ -5,6 +5,10 @@ sealed_secrets_local_cert:
 	> pub-cert.pem
 
 seal-file:
+	@[ "${file}" ] || ( echo "*** file is not set"; exit 1 )
+	@[ "${name}" ] || ( echo "*** name is not set"; exit 1 )
+	@[ "${ns}" ] || ( echo "*** ns is not set"; exit 1 )
+
 	mkdir -p .secrets/generated
 
 	kubectl create secret generic $(name) -n $(ns) \

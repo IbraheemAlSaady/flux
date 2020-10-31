@@ -8,7 +8,8 @@ resources:
   # - ../../../bases/tooling/nginx-ingress
   # - certificates
   # - external-dns-credentials.yaml
-  - grafana-admin-credentials.yaml
+  - secrets/grafana-azuread.yaml
+  - secrets/grafana-admin-credentials.yaml
   # - kiali.yaml
   # - external-dns
 
