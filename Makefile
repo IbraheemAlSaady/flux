@@ -93,4 +93,4 @@ descrypt:
 	@[ "${key}" ] || ( echo "*** key is not set"; exit 1 )
 	@[ "${file}" ] || ( echo "*** file is not set"; exit 1 )
 
-	kubeseal --recovery-unseal --recovery-private-key $(key) $(file)
+	kubeseal --recovery-unseal --recovery-private-key $(key) -o yaml < $(file)
