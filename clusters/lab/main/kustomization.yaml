@@ -1,16 +1,16 @@
 resources:
-  - ../../../bases/rbac
-  - ../../../bases/tooling/cert-manager
-  - ../../../bases/istio/core
-  - ../../../bases/istio/1.6.5
+  # - ../../../bases/rbac
+  # - ../../../bases/tooling/cert-manager
+  # - ../../../bases/istio/core
+  # - ../../../bases/istio/1.6.5
   - ../../../bases/tooling/monitoring
-  - ../../../bases/tooling/logging
-  - ../../../bases/tooling/nginx-ingress
-  - certificates
-  - external-dns-credentials.yaml
+  # - ../../../bases/tooling/logging
+  # - ../../../bases/tooling/nginx-ingress
+  # - certificates
+  # - external-dns-credentials.yaml
   - grafana-admin-credentials.yaml
-  - kiali.yaml
-  - external-dns
+  # - kiali.yaml
+  # - external-dns
 
 # patches:
 #   - target:
@@ -29,7 +29,7 @@ resources:
 #         value:
 #           external-dns.alpha.kubernetes.io/hostname: istio.main.kubechamp.gq
 
-patchesStrategicMerge:
-  - patch-hostnames.yaml
-  - patch-loki.yaml
-  - patch-promtail.yaml
+# patchesStrategicMerge:
+#   - patch-hostnames.yaml
+#   - patch-loki.yaml
+#   - patch-promtail.yaml
