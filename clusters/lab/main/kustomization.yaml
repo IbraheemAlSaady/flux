@@ -29,7 +29,8 @@ resources:
 #         value:
 #           external-dns.alpha.kubernetes.io/hostname: istio.main.kubechamp.gq
 
-# patchesStrategicMerge:
-#   - patch-hostnames.yaml
-#   - patch-loki.yaml
-#   - patch-promtail.yaml
+patchesStrategicMerge:
+  - patch-grafana-azuread.yaml
+  # - patch-hostnames.yaml
+  # - patch-loki.yaml
+  # - patch-promtail.yaml
