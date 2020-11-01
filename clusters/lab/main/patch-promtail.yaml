@@ -7,6 +7,5 @@ metadata:
 spec:
   values:
     loki:
-      serviceName: loki.main.kubechamp.internal
-      serviceScheme: https
-      servicePort: 443
+      serviceName: loki
+      serviceScheme: http

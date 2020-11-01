@@ -34,4 +34,4 @@ patchesStrategicMerge:
   - patch-grafana-azuread.yaml
   # - patch-hostnames.yaml
   # - patch-loki.yaml
-  # - patch-promtail.yaml
+  - patch-promtail.yaml
