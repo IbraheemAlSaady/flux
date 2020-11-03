@@ -10,5 +10,8 @@ spec:
       serviceName: loki
       serviceScheme: http
     pipelineStages:
+      - json:
+          expressions:
+            customer_id: "1"
       - tenant:
           source: "1"
