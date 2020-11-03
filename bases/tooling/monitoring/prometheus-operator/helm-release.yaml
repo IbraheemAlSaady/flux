@@ -14,7 +14,8 @@ spec:
   values:
     grafana:
       grafana.ini:
-        auto_assign_org: false
+        users:
+          auto_assign_org: false
       admin:
         existingSecret: "grafana-admin-credentials"
         userKey: admin-user
