@@ -11,4 +11,4 @@ spec:
       serviceScheme: http
     pipelineStages:
       - tenant:
-          source: 1
+          source: "1"
