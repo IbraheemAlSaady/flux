@@ -9,3 +9,6 @@ spec:
     loki:
       serviceName: loki
       serviceScheme: http
+    pipelineStages:
+      - tenant:
+          source: 1
