@@ -11,4 +11,4 @@ spec:
       serviceScheme: http
     pipelineStages:
       - tenant:
-          source: "Main Org."
+          value: "1"
