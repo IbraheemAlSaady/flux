@@ -1,0 +1,42 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: node-exporters
+  labels:
+    tier: prom-example
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: kube-state-metrics
+  endpoints:
+  - port: "http"
+    interval: 10s
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: prom-example
+  labels:
+    tier: prom-example
+spec:
+  selector:
+    matchLabels:
+      tier: prom-example
+  endpoints:
+  - port: "web"
+    interval: 10s
+---
+apiVersion: monitoring.coreos.com/v1
+kind: Prometheus
+metadata:
+  name: prom-example
+  labels:
+    prometheus: prom-example
+spec:
+  serviceAccountName: prometheus
+  # Define that all ServiceMonitor TPRs with the label `tier = frontend` should be included
+  # into the server's configuration.
+  serviceMonitorSelector:
+    matchLabels:
+      tier: prom-example
+  enableAdminAPI: true

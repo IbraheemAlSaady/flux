@@ -1,0 +1,32 @@
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: grafana
+spec:
+  releaseName: grafana
+  chart:
+    repository: https://grafana.github.io/helm-charts
+    name: grafana
+    version: 6.0.1
+  values:
+    adminUser: admin
+    adminPassword: admin
+    rbac:
+      create: true
+      pspEnabled: false
+    serviceAccount:
+      create: true
+      name: sa-grafana-default
+    image:
+      repository: grafana/grafana
+      tag: 7.2.1
+    datasources:
+      datasources.yaml:
+        apiVersion: 1
+        datasources:
+        - name: Prometheus
+          type: prometheus
+          url: http://prometheus-operated:9090
+          access: proxy
+          isDefault: true

@@ -1,0 +1,12 @@
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: eventrouter
+spec:
+  releaseName: eventrouter
+  chart:
+    repository: https://kubernetes-charts.storage.googleapis.com
+    name: eventrouter
+    version: "0.3.0"
+  values: {}

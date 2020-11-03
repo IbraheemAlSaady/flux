@@ -13,6 +13,8 @@ spec:
     version: "9.3.1"
   values:
     grafana:
+      grafana.ini:
+        auto_assign_org: false
       admin:
         existingSecret: "grafana-admin-credentials"
         userKey: admin-user
