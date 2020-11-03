@@ -6,5 +6,5 @@
     namespace: logging
   spec:
     values:
-      service:
-        port: 443
+      config:
+        auth_enabled: true

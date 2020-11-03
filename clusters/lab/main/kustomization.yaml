@@ -33,5 +33,5 @@ resources:
 patchesStrategicMerge:
   - patch-grafana-azuread.yaml
   # - patch-hostnames.yaml
-  # - patch-loki.yaml
+  - patch-loki.yaml
   - patch-promtail.yaml

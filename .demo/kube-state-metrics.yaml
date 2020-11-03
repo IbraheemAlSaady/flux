@@ -12,7 +12,7 @@ spec:
   values:
     prometheus:
       monitor:
-        enabled: false
+        enabled: true
     serviceAccount:
       create: true
       name: kube-state-metrics
