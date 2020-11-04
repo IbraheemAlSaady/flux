@@ -2,7 +2,7 @@
 resources:
   - namespace.yaml
   - loki
-  - promtail
+  # - promtail
   # - elasticsearch
   # - cerebro
   # - curator

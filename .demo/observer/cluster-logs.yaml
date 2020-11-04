@@ -1,0 +1,36 @@
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: logging-operator-logging
+spec:
+  releaseName: logging-operator-logging
+  chart:
+    repository: https://kubernetes-charts.banzaicloud.com
+    name: logging-operator-logging
+    version: "3.7.1"
+  values:
+    fluentbit: {}
+    clusterFlows:
+      - name: default-flows
+        filters:
+          - tag_normaliser: {}
+          - parser:
+              remove_key_name_field: true
+              reserve_data: true
+              parse:
+                type: nginx
+        spec: 
+          match:
+            - select:
+                labels:
+                  app.kubernetes.io/name: prometheus-example-app
+          globalOutputRefs:
+            - loki
+    clusterOutputs:
+      - name: loki
+        spec:
+          loki:
+            url: http://loki.logging:3100
+            tenant: "2"
+            configure_kubernetes_labels: true

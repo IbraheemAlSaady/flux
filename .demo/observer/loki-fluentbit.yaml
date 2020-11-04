@@ -1,0 +1,22 @@
+---
+  apiVersion: helm.fluxcd.io/v1
+  kind: HelmRelease
+  metadata:
+    name: fluent-bit
+  spec:
+    releaseName: fluent-bit
+    chart:
+      repository: https://grafana.github.io/loki/charts
+      name: fluent-bit
+      version: "2.0.0"
+    values:
+      image:
+        repository: grafana/fluent-bit-plugin-loki
+        tag: master-081cc02-amd64
+      loki:
+        serviceName: loki.logging
+      config:
+        batchWait: "1s"
+        tenantID: '2'
+      rbac:
+        pspEnabled: false
